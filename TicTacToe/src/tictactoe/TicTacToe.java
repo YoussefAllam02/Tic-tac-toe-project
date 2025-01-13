@@ -1,27 +1,34 @@
 package tictactoe;
 
-import tictactoe.ui.home.offline.HomeScreen_offline;
+import java.io.DataInputStream;
+import java.io.PrintStream;
+import java.net.Socket;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
 import tictactoe.ui.game.winner.WINNERController;
+
+import tictactoe.ui.home.offline.HomeScreen_offline_Controller;
+
 
 
 public class TicTacToe extends Application {
 
     public static boolean online = false;
 
+    Socket server;
+    DataInputStream ear;
+    PrintStream mouth;
+
     @Override
     public void start(Stage stage) throws Exception {
 
-         Parent root = new HomeScreen_offline(stage);
+        Parent root = new HomeScreen_offline_Controller(stage);
 
-         //Parent root = new WINNERController(stage);
+        //Parent root = new WINNERController(stage);
         //Signup() - History();
-
         //AnchorPane root = new WINNERBase();
         //Parent root = new HomeScreen_offline();
         //  Parent root = new game_screenBase();
@@ -40,8 +47,8 @@ public class TicTacToe extends Application {
 
     }*/
 
-    
-}
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
